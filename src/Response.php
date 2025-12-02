@@ -1,6 +1,6 @@
 <?php
 
-namespace FluxSoft\Turnstile;
+namespace wahjoew\Turnstile;
 
 class Response
 {
@@ -39,7 +39,7 @@ class Response
     {
         return !empty($this->errorCodes);
     }
-    
+
     /**
      * Returns true/false depending on success
      *
@@ -58,7 +58,8 @@ class Response
      */
     public static function deserialize(string $jsonResponse)
     {
-        $response = new self;
+        // $response = new self;
+        $response = new self();
         $deserializedResponse = json_decode($jsonResponse, true);
         if (!$deserializedResponse || empty($deserializedResponse)) {
             return $response;
