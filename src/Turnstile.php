@@ -1,6 +1,6 @@
 <?php
 
-namespace FluxSoft\Turnstile;
+namespace wahjoew\Turnstile;
 
 class Turnstile
 {
