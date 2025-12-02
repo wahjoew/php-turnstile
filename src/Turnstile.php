@@ -18,7 +18,7 @@ class Turnstile
 
     /**
      * Turnstile constructor.
-     * 
+     *
      * @param string $secretKey
      * @param int $timeout
      */
@@ -27,12 +27,12 @@ class Turnstile
         $this->setSecretKey($secretKey);
         $this->setTimeout($timeout);
     }
-    
+
     /**
      * Setting of secret key
-     * 
+     *
      * @param string $secretKey
-     * 
+     *
      * @return void
      */
     public function setSecretKey(string $secretKey)
@@ -42,9 +42,9 @@ class Turnstile
 
     /**
      * Setting of timeout resolving
-     * 
+     *
      * @param int $seconds
-     * 
+     *
      * @return void
      */
     public function setTimeout(int $seconds)
@@ -59,7 +59,7 @@ class Turnstile
      * @param string|null $remoteIp
      * @return \FluxSoft\Turnstile\Response
      */
-    public function verify(string $response, ?string $remoteIp = null)
+    public function verify(?string $response, ?string $remoteIp = null)
     {
         $curl = curl_init();
         curl_setopt_array($curl, [
@@ -75,7 +75,7 @@ class Turnstile
         ]);
 
         $response = curl_exec($curl);
-        
+
         curl_close($curl);
 
         return Response::deserialize($response);
